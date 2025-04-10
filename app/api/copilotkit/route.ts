@@ -15,9 +15,12 @@ const serviceAdapter = new LangChainAdapter({
   })
 
 const model = new ChatOpenAI({
-    modelName: "gpt-4o-mini",
+    modelName: process.env["OPENAI_MODEL_NAME"],
     temperature: 0,
     apiKey: process.env["OPENAI_API_KEY"],
+    configuration: {
+        baseURL: process.env["OPENAI_BASE_URL"],
+    },
   });
   
 
